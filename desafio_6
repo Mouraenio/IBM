@@ -38,7 +38,7 @@ def funcao_quadratica():
     delta = (2**2) - (4*1*-20)
     x1 = round((-2 + (delta ** (1/2))/2), 1)
     x2 = round((-2 - (delta ** (1/2))/2), 1)
-    print ("Quais os valores de x1 e x2 para a seguinte equação: x² + 2x - 20 = 0 ?")
+    print ("Quais os valores de x1 e x2 para a seguinte equação: x² + 2x - 20 = 0 ? (Utilize apenas 1 casa decimal)")
     x3 = int(input('x1 = '))
     x4 = int(input('x2 = '))
     
