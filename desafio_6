@@ -1,0 +1,50 @@
+#IMPORTAÇÕES
+import types
+import pandas as pd
+from botocore.client import Config
+import ibm_boto3
+
+body = client_997e96025eca4cceb3dc0f04aaa505ec.get_object(Bucket='desafio6-donotdelete-pr-sh6wy0y85bbmk7',Key='data.json')['Body']
+
+if not hasattr(body, "__iter__"): body.__iter__ = types.MethodType( __iter__, body )
+
+df_data_1 = pd.read_json(body, orient='values')
+
+body = client_997e96025eca4cceb3dc0f04aaa505ec.get_object(Bucket='desafio6-donotdelete-pr-sh6wy0y85bbmk7',Key='data.csv')['Body']
+
+if not hasattr(body, "__iter__"): body.__iter__ = types.MethodType( __iter__, body )
+
+df_data_2 = pd.read_csv(body)
+
+#JSON ordenado por Data
+df_data_1 = df_data_1.sort_values(['date'])
+df_data_1
+
+#JSON ordenado por Nome
+df_data_1 = df_data_1.sort_values(['name'])
+df_data_1
+
+#JSON ordenado por Valor
+df_data_1 = df_data_1.sort_values(['valor'])
+df_data_1
+
+#CVS ordenado por Nome
+df_data_2 = df_data_2.sort_values(['name'])
+df_data_2
+
+#Função Quadrática
+def funcao_quadratica():
+
+    delta = (2**2) - (4*1*-20)
+    x1 = round((-2 + (delta ** (1/2))/2), 1)
+    x2 = round((-2 - (delta ** (1/2))/2), 1)
+    print ("Quais os valores de x1 e x2 para a seguinte equação: x² + 2x - 20 = 0 ?")
+    x3 = int(input('x1 = '))
+    x4 = int(input('x2 = '))
+    
+    if x1 == x3 and x2 == x4:
+        print("Parabéns!")
+    else:
+        print("Essa não é bem a resposta correta, a resposta correta é: ", x1, x2)
+
+funcao_quadratica()
